@@ -1,15 +1,34 @@
 from django.db import models
 import os
 from django.contrib.auth.models import User
-
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+class User(AbstractUser):
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
     id = models.AutoField(primary_key=True)
     nickname = models.CharField(max_length=100, default='shopper')
     age = models.IntegerField(default=20)
     gender = models.CharField(default='女', max_length=20)
-    header = models.ImageField(upload_to=os.path.join('user', 'header'), null=True)
+    header = models.ImageField(upload_to=os.path.join('customer', 'header'), null=True,default='customer/1.png')
     phone = models.CharField(max_length=50)
     status = models.IntegerField(default=0)
+
+
+
+class Address(models.Model):
+    id = models.AutoField(primary_key=True)
+    receive_name = models.CharField(max_length=50)
+    reveive_phone = models.CharField(max_length=50)
+    nation = models.CharField(max_length=20)
+    province = models.CharField(max_length=20)
+    city = models.CharField(max_length=20)
+    county = models.CharField(max_length=20)
+    street = models.CharField(max_length=20)
+    describe = models.CharField(max_length=100)
+    is_default = models.BooleanField(default=False)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+
+
+
+
