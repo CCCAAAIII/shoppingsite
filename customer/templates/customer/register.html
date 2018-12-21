@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户注册 - 购酒网</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="icon" href="http://www.gjw.com/favicon.ico" type="image/ico">
+	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.validate.js" ></script>
+	<script src="../js/validate-methods.js"></script>
+	<script type="text/javascript" src="../js/messages_zh.js" ></script>
+	<script src="../js/register.js"></script>
+	
+</head>
+<body style="height:100%;background:url(../img/login_bg.gif) ;
+	background-repeat: repeat; 
+	animation:bg 150s linear infinite;
+	-moz-animation:bg 150s linear infinite; /* Firefox */
+	-webkit-animation:bg 150s linear infinite; /* Safari and Chrome */
+	-o-animation:bg 150s linear infinite; /* Opera */">
+	<div id="login_header">
+		<div class="login_headercon">
+			<h1 class="logo fl"><a href="javascript:;"><img src="../img/hd_logo.jpg" alt="购酒网" title="logo"></a></h1>
+			<div class="fr login_line">
+				如您已有账户 <a href="login.html"style="color: #325e8f; cursor: pointer;">请登录</a>
+				<a href="javascript:;">
+					<i class="set"></i>
+					帮助
+				</a>
+				<a href="javascript:;" class="red">
+					<i class="service"></i>
+					在线客服
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="logincon">
+		<div class="logincon_main">
+			<div class="register_box">
+				<div class="tabForm fl">
+					<ul class="tabFormBtn">
+						<li>
+							<a href="javascript:;">
+								<i class="mobile"></i>
+								手机注册
+							</a>
+							<div class="actBd">
+                            </div>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<i class="mail"></i>
+								邮箱注册
+							</a>
+							<div class="actBd">
+                            </div>
+						</li>
+					</ul>
+					<div class="wrapform">
+						<div class="wrapformbox">
+							<div class="form_box">
+								<form action="post" class="formbox1 mobileForm">
+									<div class="form_textbox form_sp" style="margin-bottom:12px;">
+										<label for="">手机号 :</label>
+										<input id="mob" name="phone" data-id="手机号" class="phone" type="text" data-msg-phone="请输入一个正确的手机号">
+									</div>
+									<div class="form_textbox form_sp">
+										<label for="">设置密码 :</label>
+										<input id="passwordA" name="passwordA" data-id="密码" placeholder="6-20个非空格字符 " class="phonePwd" type="password">
+										<!-- <strong class="error"><b class="errorIcon"></b>请输入密码</strong> -->
+									</div>
+									<div class="form_textbox form_sp">
+										<label for="">确认密码 :</label>
+										<input id="passwordA2" name="passwordA2" data-id="密码" class="phonePwd" type="password">
+									</div>
+									<div class="form_textbox form_sp mgt12 codebox" style="border:0;">
+										<div class="codetxt fl">
+											<label for="">验证码 :</label>
+											<input id="codeForMob" style="width:80px;" name="codeForMob" type="text">
+										</div>
+										<img id="verifycode" src="http://www.gjw.com/ajax/verifycode.htm" class="codepic fl">
+										<a class="blue fl" onclick="change()">换一张</a>
+									</div>
+									<div class="form_textbox form_sp mgt12">
+										<label for="">
+	                                    校验码 :</label>
+	                                    <a class="regCodeBtn btn">获取校验码</a>
+	                                    <i class="mobileIcon"></i>
+	                                    <input id="valiCode" name="number" class="codeText" type="text" data-msg-number="请输入数字">
+									</div>
+									<p class="xieyi">
+	                                点击注册，表示您同意购酒网 <a class="blue" href="javascript:;" target="_blank">《服务协议》</a></p>
+	                                <button type="submit" class="btnSubmit regBtn phoneReg">
+	                                注&nbsp;册</button>
+								</form>
+							</div>
+							<div class="form_box">
+								<form action="post" class="formbox2 emailForm">
+									<div class="form_textbox form_sp">
+										<label for=""><b class="red">*</b>邮箱 :</label>
+										<input id="email" name="email" class="email" data-id="邮箱" type="text" data-msg-email="请输入正确邮箱格式">
+										<!-- <strong class="error"><b class="errorIcon"></b>请输入邮箱</strong> -->
+									</div>
+									<div class="form_textbox form_sp">
+										<label for=""><b class="red">*</b>设置密码 :</label>
+										<input id="passwordB" name="passwordB" data-id="密码" placeholder="6-20个非空格字符" class="emlPwd" type="password">
+										<!-- <strong class="error"><b class="errorIcon"></b>请输入密码</strong> -->
+									</div>
+									<div class="form_textbox form_sp">
+										<label for=""><b class="red">*</b>确认密码 :</label>
+										<input id="passwordB2" name="passwordB2" data-id="密码" class="emlPwd" type="password">
+									</div>
+									<div class="form_textbox form_sp" style="margin-top:12px;">
+										<label for="">手机号 :</label>
+										<input id="phone" name="phone" data-id="手机" type="text">
+									</div>
+									<div class="form_textbox form_sp mgt12 codebox" style="border:0;">
+										<div class="codetxt fl">
+											<label for="">验证码 :</label>
+											<input id="code" name="code" style="width:80px;" type="text">
+										</div>
+										<img id="verifycode1" src="http://www.gjw.com/ajax/verifycode.htm" class="codepic fl">
+										<a class="blue fl" onclick="change()">换一张</a>
+									</div>
+									<p class="xieyi cl">
+	                                点击注册，表示您同意购酒网 <a class="blue" href="javascript:;" target="_blank">《服务协议》</a></p>
+	                                <button type="submit" class="btnSubmit regBtn phoneReg">
+	                                注&nbsp;册</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="adBoxright fl">
+					<a href="#"><img src="../img/register.jpg" alt=""></a>	
+				</div>		
+			</div>
+			<div class="login_footer">
+				<div class="login_footerlink">
+					<a href="javascript:;">关于我们</a> |
+					 <a href="javascript:;">联系我们</a> |
+					 <a href="javascript:;">人才招聘</a> |
+					 <a href="javascript:;">隐私声明</a> | 
+					 <a href="javascript:;">帮助中心</a> | 
+					 <a href="javascript:;">友情链接</a>
+				</div>
+				<p>Copyright©2009-2016 gjw.com, All Rights Reserved 上海购酒网电子商务有限公司 版权所有</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
