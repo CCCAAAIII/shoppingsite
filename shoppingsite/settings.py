@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'r(3o&002k22j*83o_15-m@d_i9ipw72vq+13r5hxh!%m#s&4#^'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -39,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'customer',
+    'shop'
 
 ]
 # ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
@@ -77,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shoppingsite.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -88,13 +86,12 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shoppingsite',
-        'HOST':'localhost',
-        'PORT':3306,
-        'USER':'root',
-        'PASSWORD':'root'
+        'HOST': 'localhost',
+        'PORT': 3306,
+        'USER': 'root',
+        'PASSWORD': 'root'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -114,20 +111,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh_Hans'
+# LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
+# TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -139,13 +136,13 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/')
-
+MEDIA_URL = 'static/'
 AUTH_USER_MODEL = 'customer.User'
 
 # 163 IMAP/SMTP 配置
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.163.com'
-EMAIL_PORT = 25 # 或者 465/587 是设置了 SSL 加密方式
+EMAIL_PORT = 25  # 或者 465/587 是设置了 SSL 加密方式
 # 发送邮件的邮箱
 EMAIL_HOST_USER = '18238182402@163.com'
 # 在邮箱中设置的客户端授权密码
@@ -155,3 +152,16 @@ EMAIL_HOST_PASSWORD = 'fw960529'
 EMAIL_USE_TLS = True
 # 收件人看到的发件人, 必须是一直且有效的
 EMAIL_FROM = '购酒网<18238182402@163.com>'
+
+# 缓存数据库
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        # 选中的数据库
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            # "PASSWORD":密码
+        }
+    }
+}

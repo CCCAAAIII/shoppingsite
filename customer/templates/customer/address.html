@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% block title %}
+    个人中心
+{% endblock %}
+{% block sortall %}
+    <div class="navBar_dt fl">
+        <a>全部商品分类</a>
+    </div>
+{% endblock %}
+{% block content %}
+    <!-- 内容 -->
+    <div id="indexcon">
+        <div class="personalcon">
+            <div class="personalleft fl">
+                <ul class="personallist">
+                    <li><a class="red" href="#">个人中心</a></li>
+                    <li><a href="#">我的订单</a></li>
+                    <li><a href="#">我的收藏</a></li>
+                    <li><a href="#">账户余额</a></li>
+                    <li><a href="#">我的优惠券</a></li>
+                    <li><a href="#">我的积分</a></li>
+                    <li><a href="#">售后管理</a></li>
+                    <li><a href="#">抽奖记录</a></li>
+                    <li class="active"><a href="#">收货地址管理</a></li>
+                    <li ><a href="{% url 'customer:personalcenter' %}">修改头像及密码</a></li>
+                </ul>
+            </div>
+            <div class="personalright fl">
+                <div class="personaltit">
+                    修改收货地址
+                </div>
+                <!--我的信息 begin-->
+                <div class="personaltext">
+                    {% load static %}
+                    {% if address is None %}
+                    <form action="{% url 'customer:address' %}" class="personalform" method="post">
+                        {% csrf_token %}
+
+
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>收货名：</div>
+                            <input id="username" name='receivename' class="userBtn " maxlength="15" type="text" style="width: 166px;
+    height: 24px;
+    border: 1px solid #7E9DB9;">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>手机号：</div>
+                            <input id="username" name='phone' class="userBtn " maxlength="15" type="text" style="width: 166px;
+    height: 24px;
+    border: 1px solid #7E9DB9;">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>国家：</div>
+                            <input id="username" name='nation' class="userBtn " maxlength="15" type="text" style="width: 166px;
+    height: 24px;
+    border: 1px solid #7E9DB9;">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>省：</div>
+                            <input id="username" name='province' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>市：</div>
+                            <input id="username" name='city' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>县：</div>
+                            <input id="username" name='county' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>街道：</div>
+                            <input id="username" name='street' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;">
+                        </div><div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>详细描述：</div>
+                            <input id="username" name='describe' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;">
+                        </div>
+
+
+                        <div class="personalbtn">
+                            <div class="savebtn fl">
+                                <button name="btn_submit" style="background-color: red" type="submit">确认保存</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    {% else %}
+                                            <form action="{% url 'customer:address' %}" class="personalform" method="post"
+                         >
+                        {% csrf_token %}
+
+
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>收货名：</div>
+                            <input id="username" name='receivename' class="userBtn " maxlength="15" type="text" style="width: 166px;
+    height: 24px;
+    border: 1px solid #7E9DB9;" value="{{ address.receive_name }}">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>手机号：</div>
+                            <input id="username" name='phone' class="userBtn " maxlength="15" type="text" style="width: 166px;
+    height: 24px;
+    border: 1px solid #7E9DB9;" value="{{ address.reveive_phone }}">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>国家：</div>
+                            <input id="username" name='nation' class="userBtn " maxlength="15" type="text" style="width: 166px;
+    height: 24px;
+    border: 1px solid #7E9DB9;" value="{{ address.nation }}">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>省：</div>
+                            <input id="username" name='province' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;" value="{{ address.province }}">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>市：</div>
+                            <input id="username" name='city' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;" value="{{ address.city }}">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>县：</div>
+                            <input id="username" name='county' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;" value="{{ address.county }}">
+                        </div>
+                        <div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>街道：</div>
+                            <input id="username" name='street' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;" value="{{ address.street }}">
+                        </div><div class="personp1">
+                            <div class="per_email fl"><span class="red">*</span>详细描述：</div>
+                            <input id="username" name='describe' class="userBtn " maxlength="15" type="text" style="width: 166px;
+        height: 24px;
+        border: 1px solid #7E9DB9;" value="{{ address.describe }}">
+                        </div>
+
+
+                        <div class="personalbtn">
+                            <div class="savebtn fl">
+                                <button name="btn_submit" style="background-color: red" type="submit">确认保存</button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

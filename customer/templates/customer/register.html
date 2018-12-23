@@ -111,6 +111,7 @@
                                     <label for="email"><b class="red">*</b>邮箱 :</label>
                                     <input id="email" name="email" class="email" data-id="邮箱" type="text"
                                            data-msg-email="请输入正确邮箱格式">
+                                    <span id="tip1"></span>
                                     <!-- <strong class="error"><b class="errorIcon"></b>请输入邮箱</strong> -->
                                 </div>
 {#                                <div class="form_textbox form_sp">#}
@@ -145,7 +146,7 @@
                                 </div>
                                 <p class="xieyi cl">
                                     点击注册，表示您同意购酒网 <a class="blue" href="javascript:" target="_blank">《服务协议》</a></p>
-                                <button type="submit" class="btnSubmit regBtn phoneReg">
+                                <button type="submit" class="btnSubmit regBtn phoneReg"id="btn_submit">
                                     注&nbsp;册
                                 </button>
                             </form>
@@ -178,5 +179,6 @@
  node.src = '/customer/getcheckcode/?search=' + Math.random();
  }
 </script>
+
 </body>
 </html>

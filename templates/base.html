@@ -43,7 +43,7 @@
                 <li class="line"></li>
                 <li class="droplist fors">
                     <ul class="fixedTopBar_dropList">
-                        <li><a href="html/personalcenter.html">用户中心 <i class="iconfont fr down">&#xe81c;</i></a></li>
+                        <li><a href="{% url 'customer:personalcenter' %}">用户中心 <i class="iconfont fr down">&#xe81c;</i></a></li>
                         <li class="dropBox_hideList">
                             <div style="text-align: center;">
                                 <a href="#" rel="nofollow">商品评论</a></div>
@@ -114,7 +114,8 @@
 <!--顶部导航-->
 <div id="topNav">
     <div id="topNavcon">
-        <div class="navBar_dt fl">
+        {% block sortall %}
+             <div class="navBar_dt fl">
             全部商品分类
             <div class="navmenu">
                 <ul class="navbar">
@@ -1807,6 +1808,8 @@
             </div>
             <!---->
         </div>
+        {% endblock %}
+
         <ul class="navBar_items fl">
             <li><a href="#" class="active">首页</a></li>
             <li>
