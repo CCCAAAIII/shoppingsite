@@ -1,0 +1,48 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+    <form action="{% url 'shop:editshop' %}" method="post">
+   {% csrf_token %}
+       <section>
+      <h2><strong style="color:grey;">修改信息</strong></h2>
+      <ul class="ulColumn2">
+       <li>
+        <span class="item_name" style="width:120px;">店铺名称：</span>
+        <input type="text" name="name" class="textbox textbox_295" placeholder="文本信息提示..." value="{{ shop.name }}"/>
+{#        <span class="errorTips">错误提示信息...</span>#}
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">摘要：</span>
+        <textarea placeholder="摘要信息" name="intro" class="textarea" style="width:500px;height:100px;">{{ shop.intro }}</textarea>
+       </li>
+          <li>
+        <span class="item_name" style="width:120px;">开店时间：</span>
+         <label> {{ shop.open_time }}</label>
+       </li>
+            <li>
+        <span class="item_name" style="width:120px;">所属者：</span>
+         <label> 购酒网{{ shop.user_id }}</label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn" id="loading" value="修改"/>
+             <!--点击加载-->
+     <script>
+     $(document).ready(function(){
+		$("#loading").click(function(){
+			$(".loading_area").fadeIn();
+             $(".loading_area").fadeOut(3000);
+			});
+		 });
+     </script>
+     <section class="loading_area">
+      <div class="loading_cont">
+       <div class="loading_icon"><i></i><i></i><i></i><i></i><i></i></div>
+       <div class="loading_txt"><mark>数据正在提交，请稍后！</mark></div>
+      </div>
+     </section>
+       </li>
+      </ul>
+     </section>
+    </form>
+
+{% endblock %}

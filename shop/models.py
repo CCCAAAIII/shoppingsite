@@ -22,7 +22,7 @@ class Goods(models.Model):
     name = models.CharField(max_length=100)
     price = models.FloatField()
     stock = models.IntegerField()
-    sale_count = models.IntegerField()
+    sale_count = models.IntegerField(default=0)
     add_time = models.DateTimeField()
     desc = models.CharField(max_length=100)
     good_type = models.ForeignKey(GoodType)
