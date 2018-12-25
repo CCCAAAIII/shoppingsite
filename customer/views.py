@@ -232,8 +232,16 @@ def additem(request):
     time = datetime.now()
     try:
         # 从数据库查询用户是否已加入该商品，如果有则累加数量如果没有则新建一个购物车记录对象
-        
-        CartItem.objects.create(goods_id=good_id, count=count, user_id=request.user.id, add_time=time)
+        rs = CartItem.objects.filter(user_id=request.user.id, goods_id=good_id)
+        print(len(rs))
+        if len(rs) == 0:
+            CartItem.objects.create(goods_id=good_id, count=count, user_id=request.user.id, add_time=time)
+        else:
+            print('喵喵喵')
+            item = rs[0]
+            item.count += int(count)
+            item.add_time = time
+            item.save()
     except Exception as e:
         print(e)
     return JsonResponse({'msg': 'ok'})
