@@ -4,35 +4,64 @@
         <div class="page_title">
             <h2 class="fl">商品列表</h2>
         </div>
-        <table class="table">
+        <table class="table" style="text-align:center">
+
             <tr>
                 <th>id</th>
                 <th>名称</th>
-                <th>简介</th>
+                <th>价格</th>
+                <th>库存</th>
+                <th>已销售</th>
+                <th>是否上架</th>
                 <th>操作</th>
             </tr>
+              {% for good in goods %}
             <tr>
-                <td style="width:265px;">
-                    <div class="cut_title ellipsis">265px宽·长标题字符串截取，仅适合单行截取，多行截取程序定义一下。</div>
-                </td>
-                   <td></td>
-                   <td>内容二</td>
-                <td>
-                    <a href="#">表内链接</a>
-                    <a href="#" class="inner_btn">表内按钮</a>
-                </td>
-            </tr>
 
+
+
+                <td>{{ good.id }}</td>
+                <td style="width:265px;">
+                    <div class="cut_title ellipsis">{{ good.name }}</div>
+                </td>
+                   <td>{{ good.price }}</td>
+                   <td>{{ good.stock }}</td>
+
+                <td>{{ good.sale_count }}</td>
+                <td>{{ good.is_sale }}</td>
+                <td>
+                    <a id="a_delete" onclick="delete_goods({{ good.id }})">删除</a>
+                    <a>详情</a>
+                    <a href="{% url 'shop:goodsedit'  good.id %}">修改</a>
+                </td>
+
+            </tr>
+                  <!-- Button trigger modal -->
+
+
+  {% endfor %}
 
         </table>
-        {#      <aside class="paging">#}
-        {#       <a>第一页</a>#}
-        {#       <a>1</a>#}
-        {#       <a>2</a>#}
-        {#       <a>3</a>#}
-        {#       <a>…</a>#}
-        {#       <a>1004</a>#}
-        {#       <a>最后一页</a>#}
-        {#      </aside>#}
+    <hr>
+{#              <aside class="paging" style="margin: 0 auto ;width: 400px">#}
+{#               <a>第一页</a>#}
+{#               <a>1</a>#}
+{#               <a>2</a>#}
+{#               <a>3</a>#}
+{#               <a>…</a>#}
+{#               <a>1004</a>#}
+{#               <a>最后一页</a>#}
+{#              </aside>#}
     </section>
+    <script>
+
+   function delete_goods (id) {
+      a= confirm('确认删除id为'+id+'的商品吗？')
+       if (a){
+           $.get('/shop/goodsdelete/'+id,
+               {},
+               function (data) {
+                   alert(data.msg)
+               })}}
+    </script>
 {% endblock %}

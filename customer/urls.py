@@ -18,5 +18,7 @@ urlpatterns = [
     url(r'^checkusername/$', views.checkusername, name='checkusername'),
     # 收货地址管理
     url(r'^address/$',views.address,name='address'),
+    # 商品详情
+    url(r'^productitem/(\d+)$',views.productitem,name='productitem'),
 
 ]

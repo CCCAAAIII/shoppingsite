@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from .models import User,Address
+from .models import User, Address
 from django.db.models import Q
 from io import BytesIO
 from django.contrib.auth.backends import ModelBackend
@@ -13,7 +13,9 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from itsdangerous import SignatureExpired
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
+from shop.models import Shop, Goods, GoodImage, GoodType
 from django.core.cache import cache
+
 
 class CustomBackend(ModelBackend):
     """验证用户 让用户可以使用邮箱登陆"""
@@ -131,7 +133,9 @@ def login_view(request):
 
 
 def index(request):
-    return render(request, 'customer/index.html')
+    goods = Goods.objects.filter(good_type_id=1)
+    images = GoodImage.objects.all()
+    return render(request, 'customer/index.html', {'goods': goods, 'images': images})
 
 
 @login_required(login_url='customer/login/')
@@ -172,6 +176,8 @@ def personalcenter(request):
     except Exception as e:
         print(e)
         return redirect(reverse('customer:index'))
+
+
 @csrf_exempt
 def checkusername(request):
     username = request.POST.get('username')
@@ -186,8 +192,10 @@ def checkusername(request):
     else:
         msg = 1
     return JsonResponse({'msg': msg})
+
+
 def address(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         receive_name = request.POST.get('receivename')
         receive_phone = request.POST.get('phone')
         nation = request.POST.get('nation')
@@ -197,12 +205,17 @@ def address(request):
         street = request.POST.get('street')
         describ = request.POST.get('describe')
         user_id = request.user.id
-        Address.objects.create(receive_name=receive_name,reveive_phone=receive_phone,nation=nation,
-                               province=province,city=city,county=county,street=street,describe=describ,user_id=user_id)
+        Address.objects.create(receive_name=receive_name, reveive_phone=receive_phone, nation=nation,
+                               province=province, city=city, county=county, street=street, describe=describ,
+                               user_id=user_id)
     rs = Address.objects.filter(user_id=request.user.id)
     address = None
-    if len(rs)==0:
-        return render(request,'customer/address.html',{'address':address})
+    if len(rs) == 0:
+        return render(request, 'customer/address.html', {'address': address})
     else:
-        address=rs[0]
-        return render(request,'customer/address.html',{'address':address})
+        address = rs[0]
+        return render(request, 'customer/address.html', {'address': address})
+
+
+def productitem(request,id):
+    return  render(request,'customer/productitem.html')

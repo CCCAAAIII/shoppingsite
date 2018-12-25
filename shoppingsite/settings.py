@@ -165,3 +165,5 @@ CACHES = {
         }
     }
 }
+# page_size
+PAGE_SIZE = 10
