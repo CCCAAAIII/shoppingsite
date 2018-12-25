@@ -1,0 +1,194 @@
+
+	<meta charset="UTF-8">
+	<title>购物车-购酒网</title>
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'customer/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'customer/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'shopcart/myShoppingCart.css' %}">
+	<link rel="icon" href="http://www.gjw.com/favicon.ico" type="image/ico">
+	<script src="{% static 'customer/js/jquery-1.12.4.min.js' %}"></script>
+</head>
+<body>
+	<!-- top部分 -->
+	<div id="top" style="border-bottom:1px solid #dadada;">
+		<div id="topcon" style="width: 960px;">
+			<div class="topleftt fl">
+				购酒网
+			</div>
+			<div class="topright fr">
+				<ul class="topright_nav">
+					<li class="fors"><a href="javascript:;">Hi,请 <a href="login.html" class="blue">登录</a><span class="fl">/</span><a href="register.html" class="blue">注册</a></a></li>
+					<li class="line"></li>
+					<li class="fors"><a href="javascript:;">我的订单</a></li>
+					<li class="line"></li>
+					<li class="droplist fors">
+		                <ul class="fixedTopBar_dropList">
+		                    <li><a href="javascript:;">用户中心 <i class="iconfont fr down">&#xe81c;</i></a></li>
+		                    <li class="dropBox_hideList">
+		                        <div style="text-align: center;">
+		                            <a href="#" rel="nofollow">商品评论</a></div>
+		                        <div>
+		                            <a href="#" rel="nofollow">收藏夹</a></div>
+		                        <div>
+		                            <a href="#" rel="nofollow">我的电子券</a></div>
+		                    </li>
+		                </ul>
+					</li>
+					<li class="line"></li>
+					<li class="fors"><a href="javascript:;">在线客服</a></li>
+					<li class="line"></li>
+					<li class="fors"><a href="javascript:;">帮助</a></li>
+					<li class="line"></li>
+					<li class="fors"><a href="javascript:;" style="color:#C40000;">提意见</a></li>
+					<li class="line"></li>
+					<li class="fors"><a href="javascript:;" class="tel"><i class="iconfont">&#xe622;</i>400-722-1919</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="indexcon" style="width: 960px;">
+		<div class="cart_title">
+            <h1 class="fl">
+                我的购物车</h1>
+            <div id="shipping_area_top" class="fl">
+                <b>单笔订单满100元免运费（香港、澳门、台湾、钓鱼岛地区和拆分订单除外）</b></div>
+            <a id="ASettlement" class="fr cbtn check_btn">去结算</a>
+        </div>      
+        <!-- begin -->
+        <div id="divOrderInfo">
+            <dl class="cart_box">
+                <dt><span class="check_all">
+                    <input id="CheckAll" class="check_ll" type="checkbox">
+                    全选</span> <span class="cb_r1" style="text-align: left;">商品</span> <span class="cb_r2">
+                        商品名称</span> <span class="cb_r3">单价</span> <span class="cb_r4">数量</span> <span class="cb_r5">
+                            小计</span> 
+                    <div class="clear">
+                    </div>
+                </dt>
+                <dd id="cart_goods">
+                    <div id="cart_goods_area">
+                        <div id="cart_warp" class="cart_warp">
+                            				<div id="cartShop" class="cartShop">
+					<div class="cartShop_img_warp">
+						<a href="" class="imglink">
+							<img src="../images/mall/444dcd76-82dc-4bac-85f0-bf9d60942902M.jpg.png" />
+						</a>
+					</div>
+
+					<div class="cartShop_name_warp">
+						<a href="" class="cartShop_name">
+							42°西藏天佑德青稞酒-加持 500ml（2瓶装）<i>[特价]</i>
+						</a>
+					</div>
+
+					<div class="cartShop_price">
+						￥299.00
+					</div>
+
+					<div class="cartShop_num">
+						<a class="cutNum" href="javascript:;">-</a>
+						<input class="numValue" type="text" value="1" />
+						<a class="addNum" href="javascript:;">+</a>
+					</div>
+
+					<div class="priceCount">￥299.00</div>
+
+					<div class="operation">
+						<a class="push" href="javascript:;">加入收藏夹</a>
+						<a class="remove" href="javascript:;">删除</a>
+					</div>
+
+					<!--商品详情  滑过商品名出现的详情框-->
+					<div class="cartShop_name_area">
+						<span class="spanLeft_up">商品编号</span>
+						<span class="spanCenter_up">商品名称</span>
+						<span class="spanRight_up">数量</span>
+
+						<span class="spanLeft_down">A0001535</span>
+						<span class="spanCenter_down">42°西藏天佑德青稞酒-加持 500ml（2瓶装）</span>
+						<span class="spanRight_down">2</span>
+					</div>
+				</div>
+
+                        </div>
+		<!--购物车第一件商品-->
+                    </div>
+                    
+                </dd>
+                <!--赠品s-->
+                <dd>
+                    <div>
+                        <table class="cart_goods_area">
+                            <tbody class="cartItems">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="Div2">
+                    </div>
+                </dd>
+                <!--赠品E-->
+            </dl>
+            <dl id="cart_info" class="cart_info">
+                <!--new-->
+                <div id="bonus_list_area">
+                    <dt id="yhq_2">
+                        <ul class="yhq_line" style="display: none;">
+                            <li><span class="yhq_lab">输入优惠代码</span></li>
+                            <li style="width: 110px;" class="yhq_select yhq_inputbox">
+                                <input name="txtCode" id="txtCode" maxlength="9" class="yhq_input" type="text">
+                            </li>
+                            <li style="display: none;" class="yhqyzm_box"><span class="fl yzm_lab">验证码:</span><img style="cursor: pointer;" id="captcha1">
+                                <input maxlength="6" id="bonus_captcha" class="fl yhq_yzm" type="text">
+                                <span class="fl yzm_lab">看不清？<a class="blue" style="cursor: pointer;">换一张</a></span></li>
+                            <li id="use_quan" class="yhq_select"><a id="AOk" class="cbtnIndent use_btn">
+                                使用</a><a id="ANo" class="cbtnIndent use_btn" style="display: none;">取消</a></li>
+                            <li><span class="yhq_lab"><a style="padding-left: 10px;" class="blue yhq_js_change" href="http://www.gjw.com/help/show-id-57.htm" target="_blank">怎样得到优惠代码？</a></span></li>
+                            <li id="yhq_tip_2"></li>
+                        </ul>
+                        <ul class="yhq_lab" style="padding-top: 10px;">
+                            <li>电子券在“去结算”页面中使用</li>
+                        </ul>
+                        <div class="clear">
+                        </div>
+                    </dt>
+                </div>
+                <!--new-->
+                <dd>
+                    <ul id="total_area" class="cart_sum">
+                        <li id="total_price"><span class=" fl  btn_all">
+                            <input id="check_All" class="check_ll" type="checkbox">
+                            全选</span> <span class="fl delepro" id="delePro"><a href="javascript:void(0)">删除选中商品</a>
+                            </span><span class="fl cearpro" id="creaPro"><a href="javascript:void(0)">清空购物车</a>
+                            </span>应付商品金额：<font id="palyMoney"  class="totalPrice">0</font></li>
+                        <li style="display: none;" id="total_discount">兑换券折扣：<b>-¥0.00</b></li>
+                        <li style="display: none;" id="total_bonus">优惠券折扣：<b>-¥0.00</b></li>
+                        <li style="display: none;" id="total_discount">折扣：<b>-¥0.00</b></li>
+                        <li style="" class="totalCount">购买商品数量：</li>
+                        <li style="padding-top: 10px; border-top: 1px solid rgb(234, 234, 234); margin-top: 6px;
+                            display: none;" id="total_amount">应付商品金额：<font>¥137.00</font></li>
+                    </ul>
+                    <div class="clear">
+                    </div>
+                </dd>
+            </dl>
+            <div class="cart_btn">
+                <a href="javascript:Back();" id="ABack" class="fl cbtn gono_btn">继续购物</a>
+                <span class="fl tip">商品价格和库存请以订单提交时为准</span> <a id="ASettlement1" class="fr cbtn check_btn">去结算</a>
+            </div>
+        </div>
+		<div id="cart_warp" class="cart_warp">
+		
+	</div>
+	<div id="footer">
+		<div class="footerbottom" style="width: 960px;height:180px;background:#fafafa url(../img/sanBao_07.gif) no-repeat left 20px; ">
+			<p>Copyright® 2009-2016 gjw.com, All Rights Reserved 上海线加下电子商务有限公司 版权所有</p>
+			<div class="authentication" style="padding-left:363px;">
+				<a href="javascript:;"></a>
+				<a href="javascript:;" class="fbright"></a>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

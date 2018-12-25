@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from .models import User, Address
 from django.db.models import Q
+from datetime import datetime
 from io import BytesIO
 from django.contrib.auth.backends import ModelBackend
 from . import utils
@@ -15,6 +16,7 @@ from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from shop.models import Shop, Goods, GoodImage, GoodType
 from django.core.cache import cache
+from shopcart.models import CartItem
 
 
 class CustomBackend(ModelBackend):
@@ -217,5 +219,21 @@ def address(request):
         return render(request, 'customer/address.html', {'address': address})
 
 
-def productitem(request,id):
-    return  render(request,'customer/productitem.html')
+def productitem(request, id):
+    good = Goods.objects.filter(id=id)[0]
+    type = GoodType.objects.get(id=good.good_type_id).type_name
+
+    return render(request, 'customer/productitem.html', {'good': good, 'type': type})
+
+
+def additem(request):
+    good_id = request.GET.get('id')
+    count = request.GET.get('count')
+    time = datetime.now()
+    try:
+        # 从数据库查询用户是否已加入该商品，如果有则累加数量如果没有则新建一个购物车记录对象
+        
+        CartItem.objects.create(goods_id=good_id, count=count, user_id=request.user.id, add_time=time)
+    except Exception as e:
+        print(e)
+    return JsonResponse({'msg': 'ok'})

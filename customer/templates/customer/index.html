@@ -99,7 +99,7 @@ z-index: 1;">
 {#                                    {{ goods.get.id_  }}#}
                                     {% for foo in goods %}
                                     <li>
-                                        <a href="">
+                                        <a href="{% url 'customer:productitem' foo.id  %}">
 
                                             <div class="piclist"><img src="{% static foo.image %}" alt=""></div>
                                             <p>{{ foo.name }}</p>

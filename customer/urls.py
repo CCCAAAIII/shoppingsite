@@ -20,5 +20,7 @@ urlpatterns = [
     url(r'^address/$',views.address,name='address'),
     # 商品详情
     url(r'^productitem/(\d+)$',views.productitem,name='productitem'),
+    # 添加购物车
+    url(r'^additem/$',views.additem,name='additem'),
 
 ]

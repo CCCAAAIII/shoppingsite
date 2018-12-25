@@ -40,8 +40,8 @@
                     {% if request.user.username %}
                     hi,{{ request.user.username }}
                         {% else %}
-                        <a href="javascript:;">Hi,请 <a href="{% url 'customer:login_view' %}" class="blue">登录 /</a>
-                   {% endif %}
+                        <a href="javascript:;">Hi,请 <a href="{% url 'customer:login_view' %}" class="blue">登录/</a>
+                    {% endif %}
                     <span
                         class="fl"></span><a href="{% url 'customer:register' %}" class="blue">注册</a></a></li>
                 <li class="line"></li>
