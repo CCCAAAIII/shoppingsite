@@ -2,24 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7bf6ef1-856a-451c-9eb5-2b7f0dca0a99" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/css/mall.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/css/myShoppingCart.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/css/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/image/lc_bg2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/image/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/image/pay2_18.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/js/jquery-1.12.4.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/js/jquery.cookie.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/js/style.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/templates/order/base.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/order/templates/order/orderok.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/image/lc_bg.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/order/static/order/image/lc_bg3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/shopcart/static/shopcart/image/lc_bg.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/shopcart/static/shopcart/image/lc_bg2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/shopcart/static/shopcart/image/lc_bg3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/shopcart/static/shopcart/image/loading.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/shopcart/static/shopcart/image/pay2_18.jpg" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/order/models.py" afterPath="$PROJECT_DIR$/order/models.py" />
-      <change beforePath="$PROJECT_DIR$/order/urls.py" afterPath="$PROJECT_DIR$/order/urls.py" />
-      <change beforePath="$PROJECT_DIR$/order/views.py" afterPath="$PROJECT_DIR$/order/views.py" />
+      <change beforePath="$PROJECT_DIR$/customer/urls.py" afterPath="$PROJECT_DIR$/customer/urls.py" />
+      <change beforePath="$PROJECT_DIR$/customer/views.py" afterPath="$PROJECT_DIR$/customer/views.py" />
+      <change beforePath="$PROJECT_DIR$/order/static/order/css/myShoppingCart.css" afterPath="$PROJECT_DIR$/order/static/order/css/myShoppingCart.css" />
+      <change beforePath="$PROJECT_DIR$/order/templates/order/orderok.html" afterPath="$PROJECT_DIR$/order/templates/order/orderok.html" />
       <change beforePath="$PROJECT_DIR$/shopcart/static/shopcart/myShoppingCart.css" afterPath="$PROJECT_DIR$/shopcart/static/shopcart/myShoppingCart.css" />
-      <change beforePath="$PROJECT_DIR$/shopcart/templates/shopcart/shoppingcart.html" afterPath="$PROJECT_DIR$/shopcart/templates/shopcart/shoppingcart.html" />
-      <change beforePath="$PROJECT_DIR$/shoppingsite/settings.py" afterPath="$PROJECT_DIR$/shoppingsite/settings.py" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,10 +35,27 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/order/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-305">
+            <state relative-caret-position="-357">
               <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customer/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="25" column="50" lean-forward="false" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pay2_18.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/order/static/order/image/pay2_18.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -50,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/order/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="9">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -61,8 +74,8 @@
       <file leaf-file-name="orderSubmit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/order/templates/order/orderSubmit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="139" column="24" lean-forward="true" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+            <state relative-caret-position="-74">
+              <caret line="139" column="24" lean-forward="false" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -71,8 +84,18 @@
       <file leaf-file-name="myShoppingCart.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/order/static/order/css/myShoppingCart.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="679" column="1" lean-forward="false" selection-start-line="679" selection-start-column="1" selection-end-line="679" selection-end-column="1" />
+            <state relative-caret-position="269">
+              <caret line="711" column="0" lean-forward="true" selection-start-line="711" selection-start-column="0" selection-end-line="711" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,8 +104,8 @@
       <file leaf-file-name="orderok.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/order/templates/order/orderok.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -117,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/user/models.py" />
         <option value="$PROJECT_DIR$/shoppingsite/__init__.py" />
         <option value="$PROJECT_DIR$/customer/backends.py" />
         <option value="$PROJECT_DIR$/customer/templates/customer/register.html" />
@@ -148,9 +170,6 @@
         <option value="$PROJECT_DIR$/cart/urls.py" />
         <option value="$PROJECT_DIR$/cart/models.py" />
         <option value="$PROJECT_DIR$/shopcart/templates/shopcart/1.html" />
-        <option value="$PROJECT_DIR$/customer/urls.py" />
-        <option value="$PROJECT_DIR$/customer/views.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/shopcart/models.py" />
         <option value="$PROJECT_DIR$/customer/templates/customer/productitem.html" />
         <option value="$PROJECT_DIR$/shopcart/urls.py" />
@@ -160,14 +179,18 @@
         <option value="$PROJECT_DIR$/order/static/order/ordersubmit.html" />
         <option value="$PROJECT_DIR$/order/static/order/orderSubmit.html" />
         <option value="$PROJECT_DIR$/order/templates/order/base.html" />
-        <option value="$PROJECT_DIR$/order/static/order/css/myShoppingCart.css" />
-        <option value="$PROJECT_DIR$/shopcart/static/shopcart/myShoppingCart.css" />
         <option value="$PROJECT_DIR$/shopcart/templates/shopcart/shoppingcart.html" />
         <option value="$PROJECT_DIR$/order/urls.py" />
         <option value="$PROJECT_DIR$/order/templates/order/orderSucceed.html" />
         <option value="$PROJECT_DIR$/order/views.py" />
         <option value="$PROJECT_DIR$/order/templates/order/orderSubmit.html" />
         <option value="$PROJECT_DIR$/order/models.py" />
+        <option value="$PROJECT_DIR$/customer/views.py" />
+        <option value="$PROJECT_DIR$/customer/urls.py" />
+        <option value="$PROJECT_DIR$/shopcart/static/shopcart/myShoppingCart.css" />
+        <option value="$PROJECT_DIR$/order/static/order/css/myShoppingCart.css" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/order/templates/order/orderok.html" />
       </list>
     </option>
   </component>
@@ -243,15 +266,33 @@
             <path>
               <item name="shoppingsite" type="b2602c69:ProjectViewProjectNode" />
               <item name="shoppingsite" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="shopcart" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shoppingsite" type="b2602c69:ProjectViewProjectNode" />
               <item name="shoppingsite" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
+              <item name="shopcart" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shoppingsite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shoppingsite" type="462c0819:PsiDirectoryNode" />
+              <item name="shopcart" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="shopcart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shoppingsite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shoppingsite" type="462c0819:PsiDirectoryNode" />
+              <item name="shopcart" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="shopcart" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shoppingsite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shoppingsite" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -277,11 +318,11 @@
       <recent name="D:\python_test\shoppingsite\shop\static\shop" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\python_test\shoppingsite\shopcart\static\shopcart\image" />
       <recent name="D:\python_test\shoppingsite\order\static\order\image" />
+      <recent name="D:\python_test\shoppingsite\shopcart\static\shopcart" />
       <recent name="D:\python_test\shoppingsite\order\templates\order" />
       <recent name="D:\python_test\shoppingsite\order\static\order\js" />
-      <recent name="D:\python_test\shoppingsite\order\static\order\css" />
-      <recent name="D:\python_test\shoppingsite\order\static\order" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -363,7 +404,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4332784" sideWeight="0.49092284" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3261944" sideWeight="0.49394855" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.61943984" sideWeight="0.81467474" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.58319604" sideWeight="0.81467474" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22390318" sideWeight="0.48924732" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11195159" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -457,11 +498,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/customer/static/customer/img/b2.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/customer/static/customer/img/b6.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -628,37 +664,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="114" column="40" lean-forward="false" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/customer/templates/customer/productitem.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="194" column="51" lean-forward="true" selection-start-line="194" selection-start-column="51" selection-end-line="194" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/customer/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/customer/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4012">
-          <caret line="232" column="4" lean-forward="false" selection-start-line="232" selection-start-column="4" selection-end-line="232" selection-end-column="25" />
-          <folding>
-            <element signature="e#3406#3891#0" expanded="false" />
-            <element signature="e#3923#4088#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -708,14 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopcart/static/shopcart/myShoppingCart.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7488">
-          <caret line="56" column="16" lean-forward="true" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shopcart/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -753,40 +754,81 @@
     <entry file="file://$PROJECT_DIR$/order/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/order/templates/order/orderok.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/order/static/order/image/pay2_18.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/order/static/order/css/myShoppingCart.css">
+    <entry file="file://$PROJECT_DIR$/customer/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="679" column="1" lean-forward="false" selection-start-line="679" selection-start-column="1" selection-end-line="679" selection-end-column="1" />
+        <state relative-caret-position="18">
+          <caret line="25" column="50" lean-forward="false" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order/templates/order/orderSubmit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="139" column="24" lean-forward="true" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+        <state relative-caret-position="-74">
+          <caret line="139" column="24" lean-forward="false" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/static/order/css/myShoppingCart.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="711" column="0" lean-forward="true" selection-start-line="711" selection-start-column="0" selection-end-line="711" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopcart/static/shopcart/myShoppingCart.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="716" column="0" lean-forward="true" selection-start-line="716" selection-start-column="0" selection-end-line="716" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/templates/order/orderok.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="257" column="43" lean-forward="false" selection-start-line="257" selection-start-column="43" selection-end-line="257" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#3414#3899#0" expanded="false" />
+            <element signature="e#3931#4096#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-305">
+        <state relative-caret-position="-357">
           <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
           <folding />
         </state>

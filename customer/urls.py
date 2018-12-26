@@ -22,5 +22,7 @@ urlpatterns = [
     url(r'^productitem/(\d+)$',views.productitem,name='productitem'),
     # 添加购物车
     url(r'^additem/$',views.additem,name='additem'),
+    # 退出
+    url(r'^logout/$',views.login_view,name='logout')
 
 ]

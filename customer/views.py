@@ -12,7 +12,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from itsdangerous import SignatureExpired
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from shop.models import Shop, Goods, GoodImage, GoodType
 from django.core.cache import cache
@@ -236,7 +236,7 @@ def additem(request):
         rs = CartItem.objects.filter(user_id=request.user.id, goods_id=good_id)
         print(len(rs))
         if len(rs) == 0:
-            if int(count)>good.stock:
+            if int(count) > good.stock:
                 count = good.stock
             CartItem.objects.create(goods_id=good_id, count=count, user_id=request.user.id, add_time=time)
         else:
@@ -251,3 +251,8 @@ def additem(request):
     except Exception as e:
         print(e)
     return JsonResponse({'msg': 'ok'})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect(reverse('customer:index'))

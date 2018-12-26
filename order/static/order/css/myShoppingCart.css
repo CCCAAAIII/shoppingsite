@@ -61,7 +61,7 @@ body {
     float: left;
     height: 58px;
     width: 187px;
-    background: url(../image/other/logo.png) no-repeat;
+    background: url(../image/logo.png) no-repeat;
     margin-top: 10px;
 }
 
@@ -75,7 +75,7 @@ body {
     margin: 10px 10px 0 0;
     height: 58px;
     width: 492px;
-    background: url(../image/other/lc_bg.png);
+    background: url(../image/lc_bg.png);
 }
 
 #cart_title {
@@ -712,7 +712,7 @@ body {
 
 /***********************************  订单提交成功页面	***********************/
 .os_logo_right {
-    background: url(../images/other/lc_bg3.png) no-repeat;
+    background: url(../image/lc_bg3.png) no-repeat;
 }
 
 #succeed_center {
