@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>订单结算-购酒网</title>
+    {% load static %}
+    <link rel="shortcut icon" type="image/X-icon" href="../images/public/title_logo.png"/>
+    <link rel="stylesheet" href="{% static 'order/css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'order/css/mall.css' %}"/>
+{#    <!-- <link rel="stylesheet" href="../css/helpCenter.css" /> -->#}
+    <link rel="stylesheet" href="{% static 'order/css/myShoppingCart.css' %}"/>
+    <script type="text/javascript" src="{% static 'order/js/jquery-1.12.4.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'order/js/style.js' %}"></script>
+    <script type="text/javascript" src="{% static 'order/js/jquery.cookie.js' %}"></script>
+</head>
+<body>
+<div id="top_warp">
+    <div id="top_center">
+        <p class="top_center_left">
+            <a href=""><i></i>收藏网站</a>
+            <span>欢迎来到<a href="" class="tit" title="中酒网">购酒网</a></span>
+        </p>
+        <p class="top_center_right">
+            [<a href="" class="">caicai</a>]
+            [<a href="" class="">退出</a>] |
+            <a href="" class="">我的订单</a> |
+            <a href="" class="">投诉直达</a> |
+            <a href="" class="">网站导航</a> |
+            订单热线：
+            <b>400-798-9999</b>
+        </p>
+    </div>
+</div>
+
+<div id="logo_warp">
+    <h1>
+        <a href="" title="购酒网"></a>
+    </h1>
+    <div class="logo_right sub_logo_right"></div>
+</div>
+
+
+<!--中间-->
+<div id="sub_center">
+
+    <p>收货地址:</p>
+    <div class="add_wrap">
+        <ul class="add_list">
+            <li class="add_one">
+                <p class="add1">
+                    <span class="province">{{ address.province }}</span>
+                    <span class="city">{{ address.city }}</span>
+                    <em>(<i class="person">{{ address.receive_name }}</i>收)</em>
+                </p>
+                <p class="add2">
+                    <b class="district">{{ address.county }}</b>
+                    <em>{{ address.street }}{{ address.describe }}</em>
+                </p>
+                <p class="phone">{{ address.reveive_phone }}</p>
+
+                <a>编辑地址</a>
+            </li>
+        </ul>
+        <p><a href="javascript:;" class="increase_add">添加收货地址</a></p>
+    </div>
+
+    <hr style="size:1px;color:#e6e6e6;border-style: dashed;"/>
+
+    <div class="pay_way">
+        <p class="pay_way_p1">
+            支付及配送方式：<i>[修改]</i><em>满99元在线支付9.9折优惠！</em>
+        </p>
+        <p class="pay_way_p2">在线支付（支付宝）</p>
+        <p class="pay_way_p2">快递送货上门<i>免运费 工作日、双休与节假日均可送货</i></p>
+    </div>
+
+    <hr style="size:1px;color:#e6e6e6;border-style: dashed;"/>
+
+    <div class="ticket">
+        <p class="pay_way_p1">
+            发票信息：<i>[修改]</i>
+        </p>
+        <p class="pay_way_p2">不开发票</p>
+    </div>
+
+    <hr style="size:1px;color:#e6e6e6;border-style: dashed;"/>
+
+    <div class="shopping_list">
+        <p class="list_tit">
+            购物清单：
+            <a href="javascript:;">‹‹返回修改购物车</a>
+        </p>
+
+        <table class="shopping_list_tab">
+            <tr class="shopping_list_tab_tit">
+                <td>商品图片</td>
+                <td>商品名称</td>
+                <td>单价</td>
+                <td>商品数量</td>
+                <td>金额小计</td>
+            </tr>
+            {% for item in item_list %}
+            <tr>
+            {% load static %}
+                <td class="sub_img">
+                    <img src="{% static item.goods.image %} "/>
+                </td>
+                <td class="sub_name">{{ item.goods.name }}</td>
+                <td>￥{{ item.goods.price }}</td>
+                <td class="sub_num">{{ item.count }}</td>
+                <td class="sub_total">￥{% widthratio item.goods.price 1 item.count %}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+
+        <ul class="close_account">
+            <li class="sub_nums">{{ item_count }}件商品，总商品金额：</li>
+            <li class="sub_singleprice">{{ total_money }}</li>
+            <li>运费：</li>
+            <li>￥0</li>
+
+        </ul>
+
+        <p class="close_account_price">
+            <i>应付金额：</i>
+            <em class="sub_totalprice">￥<input style="border: none" type="text" readonly value="{{ total_money }}" r></em>
+        </p>
+
+        <p class="remark"><a href="javascript:;">(+)酒水随附单</a></p>
+{#        <p class="remark"><a href="javascript:;">(+)添加订单备注</a></p>#}
+        <p class="remark"><a href="javascript:;">(+)使用优惠券抵消金额</a></p>
+<form method="post" action="{% url 'order:generateorder' %}">
+    {% csrf_token %}
+    <label for="remark">备注</label>
+    <input type="text" value="" name="remark" id="remark">
+{#    <input hidden name="items" value="{{ items }}">#}
+    {% for i in items %}
+        <input type="checkbox" hidden value={{ i }} name="cartitemid" checked>
+    {% endfor %}
+    <input hidden name="receivename" value="{{ address.receive_name }}">
+    <input hidden name="receivephone" value="{{ address.receive_phone }}">
+    <input hidden name="address" value="{{ address.province }}{{ address.city }}{{ address.county }}{{ address.street }}{{ address.describe }}">
+<input hidden name="totalmoney" value="{{ total_money }}">
+
+        <p class="sub_btn_warp">
+					<span class="load_sub">
+						<i><img src="{% static 'order/image/loading.gif' %}"></i>
+						正在提交，请稍等...
+					</span>
+            <button class="sub_btn"  type="submit">提交订单</button>
+        </p>
+    </form>
+    </div>
+</div>
+
+
+</body>
+</html>

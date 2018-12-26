@@ -1,0 +1,515 @@
+/************************* 品牌特卖 **************************/
+#brand_sale{
+	width: 1180px;
+	height: 264px;
+	margin: 0 auto;
+}
+#bigTitle{
+	position: relative;
+	width: 100%;
+	height: 64px;
+	line-height: 64px;
+	background: url(../images/mall/bg-slash.jpg) repeat-x center;
+}
+#bigTitle span{
+	font-size: 24px;
+	padding-right: 10px;
+	background-color: #fff;
+}
+#bigTitle>ul{
+	float: right;
+	padding-left: 5px;
+	background-color: #fff;
+}
+#bigTitle ul li{
+	float: left;
+	width: 64px;
+	height: 64px;
+	overflow: hidden;
+	margin-left: 5px;
+	text-align: center;
+	line-height: 64px;
+	font-size: 13px;
+	color: #666;
+	cursor: pointer;
+}
+#bigTitle .brand_sale_list{
+	position: absolute;
+	top: 64px;
+	left: 0;
+	width: 100%;
+	height: 200px;
+}
+#bigTitle .brand_sale_list li{
+	float: left;
+	width: 283px;
+	height: 180px;
+	margin: 0 15px 20px 0;
+	overflow: hidden;
+}
+#bigTitle .list1{
+	color: #666;
+	
+}
+ #bigTitle .methidli{
+	color: #fff;
+	background: url(../images/public/icon_index.png) no-repeat -320px -60px;
+}
+#bigTitle .brand_sale_list li img{
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	transition: all .3s linear;
+}
+#bigTitle .brand_sale_list li:hover img{
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	transform: scale(1.05);
+}
+
+/*品牌特卖 导航下的三块区域   暂时隐藏*/
+.recommend{
+	/*display: none;*/
+}
+.internationalBrand{
+	display: none;
+}
+.domesticBrand{
+	display: none;
+}
+#bigTitle .flashSale{
+	font-size: 24px;
+	width: 340px;
+	padding-right: 10px;
+	background-color: #fff;
+}
+#bigTitle .flashSale span{
+	
+	height: 24px;
+	margin-left: 16px;
+	border-left: 1px solid #999;
+	font-size: 14px;
+	color: #666;
+	background-color: #fff;
+}
+#bigTitle .flashSale span i{
+	display: inline-block;
+	width: 38px;
+	height: 30px;
+	background: url(../images/public/icon_index.png) no-repeat 10px -228px;
+}
+
+#bigTitle .flashSale_list{
+	position: absolute;
+	top: 64px;
+	left: 0;
+	width: 100%;
+	height: 200px;
+}
+#bigTitle .flashSale_list li{
+	float: left;
+	width: 178px;
+	height: 282px;
+	overflow: hidden;
+	margin-right: 15px;
+	border: 1px solid #d7d7d7;
+}
+#bigTitle .flashSale_list li a{
+	display: inline-block;
+}
+#bigTitle .flashSale_list li a:hover{
+	color: #c00;
+}
+#bigTitle .flashSale_list li a img{
+	float: left;
+	width: 178px;
+	height: 178px;
+	padding: 11px 0;
+}
+#bigTitle .flashSale_list li p{
+	float: left;
+	height: 34px;
+	padding: 0 16px;
+	line-height: 16px;
+	text-align: left;
+	font-size: 12px;
+}
+#bigTitle .flashSale_list li b{
+	float: left;
+	width: 146px;
+	height: 25px;
+	padding: 0 16px;
+	margin-top: 8px;
+}
+#flash_sale .flashSale_list li a .price{
+	float: left;
+	width: 62px;
+	height: 25px;
+	font-size: 16px;
+	line-height: 25px;
+	margin: 8px 0 0 16px;
+	color: #c00;
+}
+#flash_sale .flashSale_list li a .btn{
+	float: right;
+	width: 72px;
+	height: 24px;
+	color: #fff;
+	background: #b81c22;
+	line-height: 24px;
+	font-size: 12px;
+	margin: 8px 15px 0 0;
+	text-align: center;
+	padding: 0;
+}
+/*限时抢购 暂时隐藏  当前抢购 下期预告*/
+.lootBuy{
+	/*display: none;*/
+}
+.nextUp{
+	display: none;
+}
+#flash_sale{
+	width: 1180px;
+	height: 348px;
+	margin: 0 auto;
+}
+/****************************  白酒  ******************************/
+
+#whiteSpirit{
+	width: 1180px;
+	height: 691px;
+	margin: 0 auto;
+}
+#whiteSpiritTitle>li{
+	float: left;
+}
+#whiteSpiritTitle{
+	position: relative;
+	height: 43px;
+	margin-top: 20px;
+	font-size: 24px;
+	border-bottom: 2px solid #B81C22;
+}
+#icon_v{
+	position: absolute;
+	bottom: 0;
+	left: 575px;
+	width: 8px;
+	height: 5px;
+	background: url(../images/mall/icon_v.png) no-repeat center;
+}
+.whiteSpirit_icon{
+	width: 38px;
+	height: 100%;
+	background: url(../images/public/icon_index.png) no-repeat -80px -240px;
+}
+.whiteSpirit_name{
+	font-size: 24px;
+	width: 60px;
+	height: 100%;
+	margin-right: 435px;
+}
+.whiteSpirit_nav{
+	width: 92px;
+	height: 100%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+	color: #666;
+	cursor: pointer;
+}
+.whiteSpirit_more{
+	width: 92px;
+	height: 100%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+	color: #666;
+	cursor: pointer;
+}
+
+/*白酒区 导航 滑过样式*/
+.select{
+	font-weight: bold;
+	color: #b81c22;
+}
+
+.whiteSpirit_more:hover{
+	color: #b81c22;
+}
+
+#whiteSpiritCenter{
+	width: 100%;
+	height: 560px;
+}
+.whiteSpiritCenter_left{
+	width: 200px;
+	height: 560px;
+	float: left;
+	background:#6dd1f3 url(../images/mall/baijiu0219.jpg) no-repeat center bottom;
+}
+.whiteSpiritCenter_center{
+	float: left;
+	width: 800px;
+	height: 560px;
+}
+.whiteSpiritCenter_right{
+	float: left;
+	width: 180px;
+	height: 560px;
+	background: #ccc;
+}
+/*白酒 索引区*/
+.whiteSpiritCenter_nav{
+	width: 184px;
+	height: 160px;
+	padding: 20px 0 20px 16px;
+	width: 186px;
+}
+.whiteSpiritCenter_nav li{
+	position: relative;
+	float: left;
+	width: 74px;
+	height: 28px;
+	line-height: 28px;
+	margin: 0 18px 12px 0;
+	text-align: center;
+}
+.whiteSpiritCenter_nav li a{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	color: #fff;
+	background: url(http://img1.zhongjiu.com.cn/indexImg/perm/icon_index.png) -400px 0 no-repeat;
+}
+.whiteSpiritCenter_nav li a:hover{
+	width: 82px;
+	height: 31px;
+	line-height: 31px;
+	overflow: hidden;
+	top: -2px;
+	left: -4px;
+	font-size: 14px;
+	text-decoration: underline;
+	background: url(../images/public/icon_index.png) -400px -80px no-repeat;
+}
+.askForInformation{
+	display: inline-block;
+	width: 200px;
+	height: 360px;
+}
+.whiteSpiritCenter_right img{
+	width: 100%;
+	height: 280px;
+}
+.whiteSpiritCenter_center li{
+	position: relative;
+	border-right: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+	width: 199px;
+	height: 279px;
+	float: left;
+}
+.whiteSpiritCenter_center li a{
+	float: left;
+}
+.whiteSpiritCenter_center li a:hover{
+	color: #c00;
+}
+.whiteSpiritCenter_center li a img{
+	float: left;
+	width: 178px;
+	height: 178px;
+	padding: 6px 7px;
+}
+.whiteSpiritCenter_center li a p{
+	float: left;
+	height: 40px;
+	width: 165px;
+	padding: 0 16px;
+}
+.whiteSpiritCenter_center li a b{
+	float: left;
+	height: 24px;
+	width: 165px;
+	padding: 0 16px;
+	font-size: 16px;
+	line-height: 24px;
+	color: #b81c22;
+	font-weight: 100;
+}
+.position_icon{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 0;
+	left: 0;
+}
+/*白酒 导航对应显示区 暂时隐藏*/
+
+/*爆品推荐*/
+.hotreCommend{
+	/*display: none;*/
+}
+.Moutai{
+	display: none;
+}
+.Wuliangye{
+	display: none;
+}
+.Jiangxiang{
+	display: none;
+}
+.Aromatic{
+	display: none;
+}
+.Faintscent{
+	display: none;
+}
+
+#whiteSpiritBottom{
+	width: 1176px;
+	height: 65px;
+	margin: 20px auto 0;
+	border: 1px solid #e6e6e6;
+}
+#whiteSpiritBottom li{
+	position: relative;
+	float: left;
+	width: 98px;
+	height: 65px;
+	
+}
+#whiteSpiritBottom li span{
+	width: 98px;
+	height: 0px;
+	position:absolute;
+	left:0px;
+	top:38px;
+	z-index:2;
+	text-align:center;
+	line-height:65px;
+	color:#FFF;
+	background:#000;
+	opacity: .5;
+	font-weight:bold;
+	overflow:hidden;
+	display:none;
+}
+#whiteSpiritBottom li img{
+	width: 98px;
+	height: 65px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:1;
+	overflow:hidden;
+}
+#whiteSpiritBottom li a{
+	width: 98px;
+	height: 65px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:3;
+	 
+}
+
+.wineCenter_left{
+	width: 200px;
+	height: 560px;
+	float: left;
+	background:#a6a4c2 url(../images/mall/hongjiu.jpg) no-repeat center bottom;
+}
+.wine_name{
+	font-size: 24px;
+	width: 60px;
+	height: 100%;
+	margin-right: 527px;
+}
+.wine_icon{
+	width: 38px;
+	height: 100%;
+	background: url(../images/public/icon_index.png) no-repeat -160px -240px;
+}
+.foreignWine_icon{
+	width: 38px;
+	height: 100%;
+	background: url(../images/public/icon_index.png) no-repeat -240px -240px;
+}
+.foreignWine_name{
+	font-size: 24px;
+	width: 60px;
+	height: 100%;
+	margin-right: 620px;
+}
+
+.foreignWineCenter_left{
+	width: 200px;
+	height: 560px;
+	float: left;
+	background:#edaf29 url(../images/mall/yangjiu1.jpg) no-repeat center bottom;
+}
+.other_icon{
+	width: 38px;
+	height: 100%;
+	background: url(../images/public/icon_index.png) no-repeat -320px -240px;
+}
+
+.foreignWineCenter_left{
+	width: 200px;
+	height: 560px;
+	float: left;
+	background:#92d3df url(../images/mall/yutiaojiu.jpg) no-repeat center bottom;
+}
+
+
+#fixed_opa{
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: #000;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	/*display: none;*/
+}
+#fixed_img{
+	width: 700px;
+	height: 440px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background: url(../images/mall/tc.png) no-repeat center;
+	margin-top: -220px;
+	margin-left: -350px;
+	z-index: 9999;
+	/*display: none;*/
+}
+#fixed_img a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.fixed_img_X{
+	width: 30px;
+	height: 30px;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+}
+#flash_sale #bigTitle .clocknum{
+	border: 0;
+	margin: 0;
+}

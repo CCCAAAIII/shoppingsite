@@ -105,15 +105,18 @@
         </div>
     </div>
 </div>
+<form action="{% url 'order:ordersubmint' %}" method="post">
+{% csrf_token %}
 <div id="indexcon" style="width: 960px;">
     <div class="cart_title">
         <h1 class="fl">
             我的购物车</h1>
         <div id="shipping_area_top" class="fl">
             <b>单笔订单满100元免运费（香港、澳门、台湾、钓鱼岛地区和拆分订单除外）</b></div>
-        <a id="ASettlement" class="fr cbtn check_btn">去结算</a>
+        <input id="ASettlement" type="submit" class="fr cbtn check_btn">去结算</input>
     </div>
     <!-- begin -->
+
     <div id="divOrderInfo">
         <dl class="cart_box">
             <dt>
@@ -205,6 +208,6 @@
 
     </div>
 </div>
-
+</form>
 </body>
 </html>
