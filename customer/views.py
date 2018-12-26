@@ -228,6 +228,7 @@ def productitem(request, id):
 
 def additem(request):
     good_id = request.GET.get('id')
+    good = Goods.objects.get(id=good_id)
     count = request.GET.get('count')
     time = datetime.now()
     try:
@@ -235,11 +236,16 @@ def additem(request):
         rs = CartItem.objects.filter(user_id=request.user.id, goods_id=good_id)
         print(len(rs))
         if len(rs) == 0:
+            if int(count)>good.stock:
+                count = good.stock
             CartItem.objects.create(goods_id=good_id, count=count, user_id=request.user.id, add_time=time)
         else:
             print('喵喵喵')
             item = rs[0]
-            item.count += int(count)
+            number = item.count + int(count)
+            if number > good.stock:
+                number = good.stock
+            item.count = number
             item.add_time = time
             item.save()
     except Exception as e:
