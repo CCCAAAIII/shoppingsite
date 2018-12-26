@@ -29,6 +29,21 @@
                                     }
                                 }
                             </script>
+<script>
+  function deletecartitem(id) {
+      $.get(
+          '/shopcart/deletecartitem/',
+          {
+              'id':id,
+          },
+          function (data) {
+              alert(data.msg)
+              location.reload()
+          }
+      )
+
+  }
+</script>
 </head>
 <body>
 <!-- top部分 -->
@@ -142,7 +157,7 @@
                             </div>
 
                             <div class="operation">
-                                <a class="push" href="javascript:;">删除</a>
+                                <a class="push" onclick="deletecartitem({{ foo.id }})">删除</a>
 
                             </div>
                         </div>
