@@ -7,6 +7,22 @@
 <link rel="stylesheet" href="{% static 'shopcart/myShoppingCart.css' %}">
 <link rel="icon" href="http://www.gjw.com/favicon.ico" type="image/ico">
 <script src="{% static 'customer/js/jquery-1.12.4.min.js' %}"></script>
+      <script>
+          function updateitem(id,count) {
+              $.get('/shopcart/updateitemcount/',{
+                  'id':id,
+                  'count':count,
+                  },
+                function (data) {
+                    if(data.msg==0)
+                    {
+                        alert('error')
+                    }
+                    location.reload()
+                }
+              )
+          }
+      </script>
           <script>
                                 function jian(id,price) {
                                     {#alert('cc')#}
@@ -16,6 +32,8 @@
                                         c=parseInt(count) - 1
                                         number.val(c)
                                        $('#money'+id).val(c*price)
+                                        updateitem(id,c)
+
                                     }
                                 }
                                  function add(id,cout,price) {
@@ -26,9 +44,11 @@
                                         c = parseInt(count) +1
                                         number.val(c)
                                         $('#money'+id).val(c*price)
+                                        updateitem(id,c)
                                     }
                                 }
                             </script>
+
 <script>
   function deletecartitem(id) {
       $.get(
