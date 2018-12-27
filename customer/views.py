@@ -18,7 +18,7 @@ from shop.models import Shop, Goods, GoodImage, GoodType
 from django.core.cache import cache
 from shopcart.models import CartItem
 from order.models import OrderItem, Order
-
+from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
 
 class CustomBackend(ModelBackend):
     """验证用户 让用户可以使用邮箱登陆"""
@@ -260,6 +260,17 @@ def logout_view(request):
 
 
 def myorder(request):
-    orders = Order.objects.all()
+    orders_list = Order.objects.all()
+    paginator = Paginator(orders_list, 2)  # Show 25 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        orders = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        orders = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        orders = paginator.page(paginator.num_pages)
     # orders = Order.objects.filter(user_id=request.user.id)
     return render(request, 'customer/myorder.html', {'orders': orders})

@@ -5,7 +5,7 @@ from .models import Shop, GoodType, Goods, GoodImage
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
-
+from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 
 # Create your views here.
 def login_view(request):
@@ -36,7 +36,18 @@ def index(request):
 
 
 def goodlist(request):
-    goods = Goods.objects.all()
+    goods_list = Goods.objects.all()
+    paginator = Paginator(goods_list, 5)  # Show 25 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        goods = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        goods = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        goods = paginator.page(paginator.num_pages)
     return render(request, 'shop/goodslist.html', {'goods': goods})
 
 

@@ -41,12 +41,12 @@
                     hi,{{ request.user.username }}
                         {% else %}
                         Hi,请 <a href="{% url 'customer:login_view' %}" class="blue">登录/</a>
-                                     <a href="{% url 'customer:logout_view' %}" class="blue">退出</a>
 
                     {% endif %}
                     <span
                         class="fl"></span>
                     <a href="{% url 'customer:register' %}" class="blue">注册</a>
+                                     <a href="{% url 'customer:logout_view' %}" class="blue">退出</a>
 
                      </li>
                 <li class="line"></li>

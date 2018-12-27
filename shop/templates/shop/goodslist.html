@@ -43,15 +43,24 @@
 
         </table>
     <hr>
-{#              <aside class="paging" style="margin: 0 auto ;width: 400px">#}
-{#               <a>第一页</a>#}
-{#               <a>1</a>#}
-{#               <a>2</a>#}
-{#               <a>3</a>#}
-{#               <a>…</a>#}
-{#               <a>1004</a>#}
-{#               <a>最后一页</a>#}
-{#              </aside>#}
+
+
+    <span class="step-links">
+        {% if goods.has_previous %}
+            <a href="?page={{ goods.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ goods.number }} of {{ goods.paginator.num_pages }}.
+        </span>
+
+        {% if goods.has_next %}
+            <a href="?page={{ goods.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+
     </section>
     <script>
 
