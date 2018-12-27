@@ -17,6 +17,7 @@ from django.http import JsonResponse
 from shop.models import Shop, Goods, GoodImage, GoodType
 from django.core.cache import cache
 from shopcart.models import CartItem
+from order.models import OrderItem, Order
 
 
 class CustomBackend(ModelBackend):
@@ -256,3 +257,9 @@ def additem(request):
 def logout_view(request):
     logout(request)
     return redirect(reverse('customer:index'))
+
+
+def myorder(request):
+    orders = Order.objects.all()
+    # orders = Order.objects.filter(user_id=request.user.id)
+    return render(request, 'customer/myorder.html', {'orders': orders})

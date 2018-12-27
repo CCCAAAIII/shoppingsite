@@ -49,10 +49,10 @@ def generateorder(request):
             goods.sale_count += item.count
             goods.save()
             item.save()
-            OrderItem.objects.create(name=goods.name, price=goods.price, count=item.count,
+            OrderItem.objects.create(goods_id=goods.id,name=goods.name, price=goods.price, count=item.count,
                                      money=item.count * goods.price, order_id=o.id)
             item.delete()
         except Exception as  e:
             print(e)
 
-    return render(request, 'order/orderok.html')
+    return render(request, 'order/orderok.html',{'order':o})

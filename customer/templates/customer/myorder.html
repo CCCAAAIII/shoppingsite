@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}
+    个人中心
+{% endblock %}
+{% block sortall %}
+    <div class="navBar_dt fl">
+        <a>全部商品分类</a>
+    </div>
+{% endblock %}
+{% block content %}
+    <!-- 内容 -->
+    <div id="indexcon">
+        <div class="personalcon">
+            <div class="personalleft fl">
+                <ul class="personallist">
+                    <li><a class="red" href="#">个人中心</a></li>
+                    <li class="active"><a href="#">我的订单</a></li>
+                    <li><a href="#">我的收藏</a></li>
+                    <li><a href="#">账户余额</a></li>
+                    <li><a href="#">我的优惠券</a></li>
+                    <li><a href="#">我的积分</a></li>
+                    <li><a href="#">售后管理</a></li>
+                    <li><a href="#">抽奖记录</a></li>
+                    <li ><a href="#">收货地址管理</a></li>
+                    <li ><a href="{% url 'customer:personalcenter' %}">修改头像及密码</a></li>
+                </ul>
+            </div>
+            <div class="personalright fl">
+                <div class="personaltit">
+                    我的订单
+                </div>
+                <!--我的信息 begin-->
+                <div class="personaltext">
+
+<!--中间-->
+<div id="sub_center">
+{% for order in orders %}
+
+    <p>收货地址: {{ order.receive_address }}{{ order.receive_name }}
+    {{ order.receive_phone }}</p>
+
+    <hr style="size:1px;color:#e6e6e6;border-style: dashed;"/>
+    <div class="shopping_list">
+        <p class="list_tit">
+            购物清单：
+            {% if order.status == 0 %}
+            未付款
+                {% elif order.status == 1 %}
+                已付款
+                {% else %}
+                已取消
+            {% endif %}
+        </p>
+
+        <table class="shopping_list_tab">
+            <tr class="shopping_list_tab_tit">
+                <td>商品图片</td>
+                <td>商品名称</td>
+                <td>单价</td>
+                <td>商品数量</td>
+                <td>金额小计</td>
+            </tr>
+            {% for item in order.orderitem_set.all %}
+            <tr>
+            {% load static %}
+                <td class="sub_img">
+                    <img src="{% static item.goods.image %} " width="80" height="60"/>
+                </td>
+                <td class="sub_name">{{ item.name }}</td>
+                <td>￥{{ item.price }}</td>
+                <td class="sub_num">{{ item.count }}</td>
+                <td class="sub_total">￥{{ item.money }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+        <ul class="close_account">
+            <li class="sub_nums">总商品金额：￥{{ order.total_money }} 订单生成时间：{{ order.order_time }}</li>
+            <li class="sub_singleprice"></li>
+        </ul>
+    </div>
+    <hr style="size:1px;color:#e6e6e6;border-style: dashed;"/>
+    <hr style="size:1px;color:#e6e6e6;border-style: dashed;"/>
+{% endfor %}
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

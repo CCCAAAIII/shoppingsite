@@ -1,7 +1,6 @@
 from django.db import models
 from customer.models import User
-
-
+from shop.models import Goods,GoodType
 # Create your models here.
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
@@ -18,6 +17,7 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     id = models.AutoField(primary_key=True)
+    goods = models.ForeignKey(Goods,on_delete=models.CASCADE)
     order = models.ForeignKey(Order,on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     price = models.FloatField()

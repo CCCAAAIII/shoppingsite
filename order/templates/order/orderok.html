@@ -23,7 +23,7 @@
 				</p>
 				<p class="top_center_right">
 					[<a href="" class="">{{ request.user.username }}</a>]
-					[<a href="" class="">退出</a>] |
+					[<a href="{% url 'customer:logout_view' %}" class="">退出</a>] |
 					<a href="" class="">我的订单</a> |
 					<a href="" class="">投诉直达</a> |
 					<a href="" class="">网站导航</a> |
@@ -47,13 +47,13 @@
 					<span>（逾期订单自动取消）</span>
 				</p>
 				<p class="os_order">
-					订单编号：<i>10000507868</i>
-					应付金额：<b class="os_total">￥176.42</b>
+					订单编号：<i>{{ order.id }}</i>
+					应付金额：<b class="os_total">￥{{ order.total_money }}</b>
 				</p>
 				<p class="os_add">
-					收货信息：<span>长剑腥***</span>
-					<span>河南省郑州市金水区经八路3072号</span>
-					联系电话：<span>151****9291</span>
+					收货信息：<span>{{ order.receive_name }}</span>
+					<span>{{ order.receive_address }}</span>
+					联系电话：<span>{{ order.receive_phone }}</span>
 				</p>
 				
 				<p class="os_pay">
