@@ -39,6 +39,7 @@
                 <li class="fors">
                     {% if request.user.username %}
                     hi,{{ request.user.username }}
+                            <a href="{% url 'customer:logout_view' %}" class="blue">退出</a>
                         {% else %}
                         Hi,请 <a href="{% url 'customer:login_view' %}" class="blue">登录/</a>
 
@@ -46,7 +47,7 @@
                     <span
                         class="fl"></span>
                     <a href="{% url 'customer:register' %}" class="blue">注册</a>
-                                     <a href="{% url 'customer:logout_view' %}" class="blue">退出</a>
+
 
                      </li>
                 <li class="line"></li>
@@ -91,10 +92,14 @@
         <div class="logofixed fl">
             <img src="{% static 'customer/img/whiteLogo.png' %}" alt="" height="40">
         </div>
+        <form method='get' action="/search/" target="_blank">
         <div class="schBox">
-            <input type="text" class="sch fl" placeholder="请输入搜索关键词">
-            <input type="button" value="搜索" class="btn fl">
+            <input type="text" class="sch fl" name="q" placeholder="请输入搜索关键词">
+            <input type="submit" value="搜索" class="btn fl">
         </div>
+</form>
+
+
     </div>
 </div>
 <!--顶部logo,搜索，购物车-->
@@ -102,8 +107,10 @@
     <h1 class="logo fl"><a href="javascript:;"><img src="{% static 'customer/img/hd_logo.jpg' %}" alt="购酒网" title="logo"></a></h1>
     <div class="logogif fl"><a href="javascript:;"><img src="{% static 'customer/img/logogif.gif' %}" alt=""></a></div>
     <div class="topBar_searchBox fl">
-        <input type="text" class="search fl" id="sea">
-        <button class="searchBtn fl">搜索</button>
+        <form method='get' action="/search/" target="_blank">
+        <input type="text" class="search fl" id="sea" name="q">
+        <button class="searchBtn fl" type="submit">搜索</button>
+</form>
         <ul id="searchBtnlist" style="">
         </ul>
         <div class="topBar_tags fl">

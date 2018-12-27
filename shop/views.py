@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth import authenticate, login, logout
 from .models import Shop, GoodType, Goods, GoodImage
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
-from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from order.models import Order, OrderItem
+
 
 # Create your views here.
 def login_view(request):
@@ -29,6 +31,7 @@ def login_view(request):
             return render(request, 'shop/login.html', {'msg': '用户名或密码错误'})
 
     return render(request, 'shop/login.html', {'msg': ''})
+
 
 @login_required(login_url='shop:login_view')
 def index(request):
@@ -154,6 +157,24 @@ def editshop(request):
         print('ok')
         return render(request, 'shop/editshop.html', {'shop': shop})
     return render(request, 'shop/editshop.html', {'shop': shop})
+
+
 def logout_view(request):
     logout(request)
     return redirect(reverse('shop:login_view'))
+
+
+def order(request):
+    orders_list = Order.objects.all()
+    paginator = Paginator(orders_list, 2)  # Show 25 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        orders = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        orders = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        orders = paginator.page(paginator.num_pages)
+    return render(request, 'shop/orders.html', {'orders': orders})

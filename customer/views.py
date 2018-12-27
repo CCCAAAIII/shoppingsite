@@ -136,12 +136,12 @@ def login_view(request):
 
 
 def index(request):
-    goods = Goods.objects.filter(good_type_id=1)
+    goods = Goods.objects.filter(is_sale=True)
     images = GoodImage.objects.all()
     return render(request, 'customer/index.html', {'goods': goods, 'images': images})
 
 
-@login_required(login_url='customer/login/')
+@login_required(login_url='/customer/login/')
 def personalcenter(request):
     id = request.user.id
     if request.method == 'POST':
@@ -196,7 +196,7 @@ def checkusername(request):
         msg = 1
     return JsonResponse({'msg': msg})
 
-
+@login_required(login_url='/customer/login/')
 def address(request):
     if request.method == 'POST':
         receive_name = request.POST.get('receivename')
@@ -226,7 +226,7 @@ def productitem(request, id):
 
     return render(request, 'customer/productitem.html', {'good': good, 'type': type})
 
-
+@login_required(login_url='/customer/login/')
 def additem(request):
     good_id = request.GET.get('id')
     good = Goods.objects.get(id=good_id)
@@ -258,7 +258,7 @@ def logout_view(request):
     logout(request)
     return redirect(reverse('customer:index'))
 
-
+@login_required(login_url='/customer/login/')
 def myorder(request):
     orders_list = Order.objects.all()
     paginator = Paginator(orders_list, 2)  # Show 25 contacts per page

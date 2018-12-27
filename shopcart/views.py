@@ -3,9 +3,11 @@ from .models import CartItem
 from shop.models import Goods, GoodType
 from django.http import JsonResponse
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required(login_url='/customer/login/')
 def index(request):
     user_id = request.user.id
     if request.method == 'POST':

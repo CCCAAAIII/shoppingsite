@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'goodsdelete/(\d+)$',views.goodsdelete,name='goodsdelete'),
     url(r'goodsedit/(\d+)$',views.goodsedit,name='goodsedit'),
     url(r'^logout$',views.logout_view,name='logout_view'),
+    url(r'^order/$',views.order,name='order_view'),
 ]

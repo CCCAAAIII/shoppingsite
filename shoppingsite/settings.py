@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'shop',
     'shopcart',
     'order',
+    'haystack',
+    'search',
+
 
 ]
 # ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
@@ -169,3 +172,15 @@ CACHES = {
 }
 # page_size
 PAGE_SIZE = 10
+HAYSTACK_CONNECTIONS = {
+ 'default': {
+ 'ENGINE': 'search.whoosh_cn_backend.WhooshEngine', # 将来需要修改
+ 'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+ }
+}
+# 分页设置
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
+
+# 索引生成设置
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+

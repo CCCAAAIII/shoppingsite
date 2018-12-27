@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block sortall %}
+    <div class="navBar_dt fl">
+        <a>全部商品分类</a>
+    </div>
+{% endblock %}
+{% block content %}
+<div id="indexcon">
+		<div class="codetit">
+			<a href="#">首页</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<a href="#" class="red">商品搜索</a>
+		</div>
+		<div class="search_yh_product">
+			<div class="search_yh_product_tit">
+				<div class="fl sortBtnBox">
+                    <a href="#" class="currentBtn" rel="nofollow">销量<i class="sortIcon sortDn">&nbsp;</i></a>
+                    <a href="#" class="" rel="nofollow">价格<i class="">&nbsp;</i></a>
+                    <a href="#" class="" rel="nofollow">评论数<i class="">&nbsp;</i></a>
+                    <a href="#" class="" rel="nofollow">上架时间<i class="">&nbsp;</i></a>
+                    <a href="#" class="noBd" rel="nofollow"><i class="checkBox "></i>仅显示有货</a>
+                </div>
+                <div class="fr pageBtn">
+                    <span class="pages"><strong>1</strong>/1</span>
+                    <a id="last" class="prevBtn disable"><i class="prevPage"><</i></a>
+                    <a id="next" class="nextBtn"><i class="nextPage">></i></a>
+                </div>
+			</div>
+
+
+       {% if query %}
+{% load static %}
+
+ {% for result in page.object_list %}
+ 		<div class="min_in">
+
+                <div class="productImg-wrap">
+                    <a href="#" title="{{ result.object.name }}">
+                        <img src="{% static result.object.image %}" id="imgfly_1645" alt="52度 洋河 梦之蓝（M3）500ml" height="230" width="230"></a>
+                </div>
+                <p class="productPrice">
+                    <em id="G_2" title="409"><strong>￥{{ result.object.price  }}</strong></em><span class="guanzhu fr">关注度 <b>
+                            128625</b> </span>
+                </p>
+                <p class="productTitle">
+                    <a href="#" title="52度 洋河 梦之蓝（M3）500ml">
+                        {{ result.object.name }}</a> <font color="#ffaa71">
+                           {{ result.object.desc }}</font>
+                    <label id="A_2" title="">
+                    </label>
+                </p>
+                <table class="productBtn" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="pingjiaBox">
+                                <a href="#" rel="nofollow">
+                                    51</a>
+                            </td>
+                            <td width="26%">
+                                <div class="favBox">
+                                    <a onclick="javascript:void(0);" data-id="1645" rel="nofollow">收藏</a>
+                                </div>
+                            </td>
+                            <td class="shopCarBox" width="48%">
+                                <a rel="nofollow" id="addcart" onclick="">加入购物车 </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+ {% empty %}
+ 	<p>啥也没找到</p>
+ {% endfor %}
+ {% if page.has_previous or page.has_next %}
+ <div>
+ {% if page.has_previous %}
+<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">
+{% endif %}
+&laquo; 上一页
+{% if page.has_previous %}
+</a>
+{% endif %}
+ |
+ {% if page.has_next %}
+<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">
+{% endif %}
+下一页 &raquo;
+{% if page.has_next %}
+</a>
+{% endif %}
+ </div>
+{% endif %}
+{% endif %}
+
+        </div>
+</div>
+
+
+{% endblock %}

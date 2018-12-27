@@ -1,10 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'shop/base.html' %}
+{% block content %}
+    <section>
+        <div class="page_title">
+            <h2 class="fl">店铺订单列表</h2>
+        </div>
+    <!--中间-->
+<div id="sub_center">
+{% for order in orders %}
 
-</body>
-</html>
+    <p>收货地址: {{ order.receive_address }}{{ order.receive_name }}
+    {{ order.receive_phone }}</p>
+
+    <hr style="size:1px;color:#e6e6e6;border-style: dashed;"/>
+    <div class="shopping_list">
+        <p class="list_tit">
+            订单清单：
+            {% if order.status == 0 %}
+            未付款
+                {% elif order.status == 1 %}
+                已付款
+                {% else %}
+                已取消
+            {% endif %}
+        </p>
+
+        <table class="shopping_list_tab">
+            <tr class="shopping_list_tab_tit">
+                <td>商品编号</td>
+                <td>商品图片</td>
+                <td>商品名称</td>
+                <td>单价</td>
+                <td>商品数量</td>
+                <td>金额小计</td>
+            </tr>
+            {% for item in order.orderitem_set.all %}
+            <tr>
+            {% load static %}
+                <td>{{ item.goods_id }}</td>
+                <td class="sub_img">
+                    <img src="{% static item.goods.image %} " width="80" height="60"/>
+                </td>
+                <td class="sub_name">{{ item.name }}</td>
+                <td>￥{{ item.price }}</td>
+                <td class="sub_num">{{ item.count }}</td>
+                <td class="sub_total">￥{{ item.money }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+        <ul class="close_account">
+            <li class="sub_nums">总商品金额：￥{{ order.total_money }} 订单生成时间：{{ order.order_time }}</li>
+            <li class="sub_singleprice"></li>
+        </ul>
+    </div>
+    <hr style="size:1px;color:#e6e6e6;border-style: dashed;"/>
+    <hr style="size:1px;color:#e6e6e6;border-style: dashed;"/>
+{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if orders.has_previous %}
+            <a href="?page={{ orders.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ orders.number }} of {{ orders.paginator.num_pages }}.
+        </span>
+
+        {% if orders.has_next %}
+            <a href="?page={{ orders.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+</div>
+
+
+    </section>
+    <script>
+
+   function delete_goods (id) {
+      a= confirm('确认删除id为'+id+'的商品吗？')
+       if (a){
+           $.get('/shop/goodsdelete/'+id,
+               {},
+               function (data) {
+                   alert(data.msg)
+               })}}
+    </script>
+{% endblock %}
