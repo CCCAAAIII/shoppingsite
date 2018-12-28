@@ -60,7 +60,7 @@
                                 </div>
                             </td>
                             <td class="shopCarBox" width="48%">
-                                <a rel="nofollow" id="addcart" onclick="">加入购物车 </a>
+                                <a rel="nofollow" onclick="additem({{ result.object.id }})">加入购物车 </a>
                             </td>
                         </tr>
                     </tbody>
@@ -91,9 +91,22 @@
  </div>
 {% endif %}
 {% endif %}
-
         </div>
 </div>
+            <script>
+                       {#添加购物车#}
+                        function additem(id) {
+                            $.get(
+                                '/customer/additem/',{
+                                    'id':id,
+                                    'count':1,
+                                },function (data) {
+                                    alert(data.msg)
+                                }
+                            )
+
+                        }
+                    </script>
 
 
 {% endblock %}

@@ -18,8 +18,9 @@ from shop.models import Shop, Goods, GoodImage, GoodType
 from django.core.cache import cache
 from shopcart.models import CartItem
 from order.models import OrderItem, Order
-from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django.db.models import Sum
 class CustomBackend(ModelBackend):
     """验证用户 让用户可以使用邮箱登陆"""
 
@@ -196,6 +197,7 @@ def checkusername(request):
         msg = 1
     return JsonResponse({'msg': msg})
 
+
 @login_required(login_url='/customer/login/')
 def address(request):
     if request.method == 'POST':
@@ -225,6 +227,7 @@ def productitem(request, id):
     type = GoodType.objects.get(id=good.good_type_id).type_name
 
     return render(request, 'customer/productitem.html', {'good': good, 'type': type})
+
 
 @login_required(login_url='/customer/login/')
 def additem(request):
@@ -258,6 +261,7 @@ def logout_view(request):
     logout(request)
     return redirect(reverse('customer:index'))
 
+
 @login_required(login_url='/customer/login/')
 def myorder(request):
     orders_list = Order.objects.all()
@@ -274,3 +278,9 @@ def myorder(request):
         orders = paginator.page(paginator.num_pages)
     # orders = Order.objects.filter(user_id=request.user.id)
     return render(request, 'customer/myorder.html', {'orders': orders})
+# def getcartcount(request):
+#     carts= CartItem.objects.annotate(sum_count = Sum('count')).filter(user_id=request.user.id)
+#     print('cc',carts)
+
+
+    return JsonResponse({'msg':1})

@@ -24,7 +24,7 @@
           }
       </script>
           <script>
-                                function jian(id,price) {
+                                function jian1(id,price) {
                                     {#alert('cc')#}
                                     number = $('#num'+id)
                                     count = number.val()
@@ -36,7 +36,7 @@
 
                                     }
                                 }
-                                 function add(id,cout,price) {
+                                 function add1(id,cout,price) {
                                     {#alert('cc')#}
                                     number = $('#num'+id )
                                     count = number.val()
@@ -67,21 +67,40 @@
 </head>
 <body>
 <!-- top部分 -->
-<div id="top" style="border-bottom:1px solid #dadada;">
-    <div id="topcon" style="width: 960px;">
-        <div class="topleftt fl">
-            购酒网
+<!-- top部分 -->
+<div id="top">
+
+    <div id="topcon">
+        <div class="topleft fl">
+            <i></i>
+            <span>关注购酒网</span>
+            <i></i>
         </div>
+        <span class="hoverQrCode">
+                <img src="{% static 'customer/img/qrcode_06.jpg' %}" alt="">
+            </span>
         <div class="topright fr">
             <ul class="topright_nav">
-                <li class="fors"><a href="javascript:;">Hi,请 <a href="login.html" class="blue">登录</a><span
-                        class="fl">/</span><a href="register.html" class="blue">注册</a></a></li>
+                <li class="fors">
+                    {% if request.user.username %}
+                    hi,{{ request.user.username }}
+                            <a href="{% url 'customer:logout_view' %}" class="blue">退出</a>
+                        {% else %}
+                        Hi,请 <a href="{% url 'customer:login_view' %}" class="blue">登录/</a>
+
+                    {% endif %}
+                    <span
+                        class="fl"></span>
+                    <a href="{% url 'customer:register' %}" class="blue">注册</a>
+
+
+                     </li>
                 <li class="line"></li>
-                <li class="fors"><a href="javascript:;">我的订单</a></li>
+                <li class="fors"><a href='{% url 'customer:myorder' %}'>我的订单</a></li>
                 <li class="line"></li>
                 <li class="droplist fors">
                     <ul class="fixedTopBar_dropList">
-                        <li><a href="javascript:;">用户中心 <i class="iconfont fr down">&#xe81c;</i></a></li>
+                        <li><a href="{% url 'customer:personalcenter' %}">用户中心 <i class="iconfont fr down">&#xe81c;</i></a></li>
                         <li class="dropBox_hideList">
                             <div style="text-align: center;">
                                 <a href="#" rel="nofollow">商品评论</a></div>
@@ -167,9 +186,9 @@
                             </div>
 
                             <div class="cartShop_num">
-                                <button class="cutNum" id="jian" onclick="jian({{ foo.id }},{{ foo.goods.price }})">-</button>
+                                <button class="cutNum" type="button" id="jipan" onclick="jian1({{ foo.id }},{{ foo.goods.price }})">-</button>
                                 <input class="numValue" id="num{{ foo.id }}" type="text" value='{{ foo.count }}'/>
-                                <button class="addNum" id="add" onclick="add({{ foo.id }},{{ foo.goods.stock }},{{ foo.goods.price }})">+</button>
+                                <button class="addNum" id="add"type="button" onclick="add1({{ foo.id }},{{ foo.goods.stock }},{{ foo.goods.price }})">+</button>
                             </div>
 
 

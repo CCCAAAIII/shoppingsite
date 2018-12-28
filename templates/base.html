@@ -51,7 +51,7 @@
 
                      </li>
                 <li class="line"></li>
-                <li class="fors"><a href="javascript:;">我的订单</a></li>
+                <li class="fors"><a href='{% url 'customer:myorder' %}'>我的订单</a></li>
                 <li class="line"></li>
                 <li class="droplist fors">
                     <ul class="fixedTopBar_dropList">
@@ -114,20 +114,23 @@
         <ul id="searchBtnlist" style="">
         </ul>
         <div class="topBar_tags fl">
-            <a href="javascript:;">茅台</a>
-            <a href="javascript:;">郎酒</a>
+            <a href="javascript:;">葡萄酒</a>
+            <a href="javascript:;">红酒</a>
             <a href="javascript:;">五粮液</a>
             <a href="javascript:;">剑南春</a>
             <a href="javascript:;">泸州老窖</a>
             <a href="javascript:;" class="border0">洋河</a>
         </div>
     </div>
-    <div class="topBar_cart fr">
+    {% block mycart %}
+        <div class="topBar_cart fr">
         <i class="iconfont gouwuche">&#xe63f;</i>
         <a href="{% url 'shopcart:mycart' %}">我的购物车</a>
         <span class="arrow">></span>
         <div class="topBar_count" id="head_cart_no">0</div>
     </div>
+    {% endblock %}
+
 </div>
 <!--顶部导航-->
 <div id="topNav">
@@ -1779,7 +1782,7 @@
         {% endblock %}
 
         <ul class="navBar_items fl">
-            <li><a href="#" class="active">首页</a></li>
+            <li><a href="{% url 'customer:index' %}" class="active">首页</a></li>
             <li>
                 <a href="javascript:;">特卖会</a>
                 <span class="navBar_tip" style="font-size:8px;">HOT</span>

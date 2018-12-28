@@ -3,7 +3,9 @@ from shopcart.models import CartItem
 from customer.models import User, Address
 from datetime import datetime
 from order.models import Order,OrderItem
-
+from shop.models import Goods
+from django.http import JsonResponse
+from django.db.models import Sum
 # Create your views here.
 def index(request):
     if request.method == 'POST':
@@ -22,7 +24,20 @@ def index(request):
         return render(request, 'order/orderSubmit.html',
                       {'item_list': item_list, 'item_count': len(items), 'total_money': total_money, 'address': address,
                        'items': items})
+def buy(request):
+        address = Address.objects.filter(user_id=request.user.id)[0]
+        goods_id = request.GET.get('id')
+        count = request.GET.get('count')
+        goods = Goods.objects.get(id=goods_id )
+        add_time = datetime.now()
 
+        total_money = int(count)*goods.price
+        item = CartItem(goods_id=goods_id,count=count,user_id=request.user.id,add_time=add_time)
+        item_list = [item]
+        items = [item.id]
+        return render(request, 'order/orderSubmit.html',
+                      {'item_list': item_list, 'item_count': 1, 'total_money': total_money, 'address': address,
+                       'items': items})
 
 def generateorder(request):
 

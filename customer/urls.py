@@ -25,6 +25,7 @@ urlpatterns = [
     # 退出
     url(r'^logout/$',views.login_view,name='logout_view'),
     # 我的订单
-    url(r'^myorder/$',views.myorder,name='myorder')
+    url(r'^myorder/$',views.myorder,name='myorder'),
+    # url(r'^getcartcount/$', views.getcartcount),
 
 ]

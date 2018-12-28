@@ -85,6 +85,14 @@
         </div>
     </div>
 {% endblock %}
+{% block mycart %}
+        <div class="topBar_cart fr">
+        <i class="iconfont gouwuche">&#xe63f;</i>
+        <a href="{% url 'shopcart:mycart' %}">我的购物车</a>
+        <span class="arrow">></span>
+        <div class="topBar_count" id="head_cart_no">0</div>
+    </div>
+{% endblock %}
 {% block content %}
     <div id="indexcon">
         <div class="probox">
@@ -132,12 +140,6 @@
                                     已优惠￥ <label id="money"></label>元</span>
                         </p>
                     </div>
-                    <script>
-                        price = {{ good.price }}
-                            normal_price = {{ good.normal_price }}
-                                a = normal_price - price
-                        $('#money').text(a)
-                    </script>
                     <div class="transTo">
                         <div class="psz fl">
                             配&nbsp;送&nbsp;至:
@@ -151,10 +153,10 @@
                         </div>
                         <a class="question" href="javascript:;"></a>
                     </div>
-
+  <form action="{% url 'order:buy' %}" method="get">
                     <div class="shul" style="margin-top:20px;line-height: 30px;">
                         <span class="fl">数&nbsp;&nbsp;量：</span>
-                        <input class="nums fl" id="txtQuantity" value=1 type="text">
+                        <input class="nums fl" name="count" id="txtQuantity" value=1 type="text">
                         <div class="addBtn">
                             <span class="addN" id="add">+</span><span class="diffN" id="jian">-</span>
                         </div>
@@ -163,41 +165,16 @@
                         <span class="fl">库&nbsp;&nbsp;存：{{ good.stock }}</span>
 
                     </div>
-                    <script>
-                        $('#jian').bind('click', function () {
-                            number = $('#txtQuantity')
-                            count = number.val()
-                            if (parseInt(count) > 1) {
-                                number.val(parseInt(count) - 1)
-                            }
-                        })
-                        $('#add').bind('click', function () {
-                            number = $('#txtQuantity')
-                            count = number.val()
-                            if (parseInt(count) <{{ good.stock }}) {
-                                number.val(parseInt(count) + 1)
-                            }
-                        })
-                    </script>
 
-                    <div class="buybtn cl">
-                        <a id="addCat" class="addBuy btn" target="_blank" rel="nofollow"
-                           onclick="joinCart(4322,true);"></a>
+
+
+<input hidden name="id" value="{{ good.id }}">
+
+      <div class="buybtn cl">
+                        <input id="addCat" type="submit"  class="addBuy btn" target="_blank" rel="nofollow"></input>
                         <a id="addToCat" class="addToCart btn" rel="nofollow" target="_blank" ></a>
                     </div>
-                    <script>
-                        $('#addToCat').bind('click',function () {
-                            $.get(
-                                '/customer/additem/',{
-                                    'id':{{ good.id }},
-                                    'count':parseInt($('#txtQuantity').val()),
-                                },function (data) {
-                                    alert(data.msg)
-                                }
-                            )
-
-                        })
-                    </script>
+                </form>
                     <p class="service">
                         温馨提示：
                         <font color="red">
@@ -221,5 +198,51 @@
                 </ul>
             </div>
             </div>
+                    <script>
+                        price = {{ good.price }}
+                            normal_price = {{ good.normal_price }}
+                                a = normal_price - price
+                        $('#money').text(a)
+                    </script>
+                        <script>
+                        $('#jian').bind('click', function () {
+                            number = $('#txtQuantity')
+                            count = number.val()
+                            if (parseInt(count) > 1) {
+                                number.val(parseInt(count) - 1)
+                            }
+                        })
+                        $('#add').bind('click', function () {
+                            number = $('#txtQuantity')
+                            count = number.val()
+                            if (parseInt(count) <{{ good.stock }}) {
+                                number.val(parseInt(count) + 1)
+                            }
+                        })
+                    </script>
+
+                        <script>
+                       {#添加购物车#}
+                        $('#addToCat').bind('click',function () {
+                            $.get(
+                                '/customer/additem/',{
+                                    'id':{{ good.id }},
+                                    'count':parseInt($('#txtQuantity').val()),
+                                },function (data) {
+                                    alert(data.msg)
+                                }
+                            )
+{#$.get(#}
+{#    '/customer/getcartcount/',#}
+{#    {},#}
+{#    function (data) {#}
+{#        $('#head_cart_no'.text(data.msg))#}
+{#    }#}
+{#)#}
+                        })
+                    </script>
+
+
+
 
 {% endblock %}

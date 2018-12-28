@@ -14,23 +14,23 @@
     <script type="text/javascript" src="{% static 'order/js/jquery.cookie.js' %}"></script>
 </head>
 <body>
-<div id="top_warp">
-    <div id="top_center">
-        <p class="top_center_left">
-            <a href=""><i></i>收藏网站</a>
-            <span>欢迎来到<a href="" class="tit" title="中酒网">购酒网</a></span>
-        </p>
-        <p class="top_center_right">
-            [<a href="" class="">caicai</a>]
-            [<a href="" class="">退出</a>] |
-            <a href="" class="">我的订单</a> |
-            <a href="" class="">投诉直达</a> |
-            <a href="" class="">网站导航</a> |
-            订单热线：
-            <b>400-798-9999</b>
-        </p>
-    </div>
-</div>
+	<div id="top_warp">
+			<div id="top_center">
+				<p class="top_center_left">
+					<a href="" ><i></i>收藏网站</a>
+					<span>欢迎来到<a href="" class="tit" title="中酒网">购酒网</a></span>
+				</p>
+				<p class="top_center_right">
+					[<a href="" class="">{{ request.user.username }}</a>]
+					[<a href="{% url 'customer:logout_view' %}" class="">退出</a>] |
+					<a href="" class="">我的订单</a> |
+					<a href="" class="">投诉直达</a> |
+					<a href="" class="">网站导航</a> |
+					订单热线：
+					<b>400-798-9999</b>
+				</p>
+			</div>
+		</div>
 
 <div id="logo_warp">
     <h1>
